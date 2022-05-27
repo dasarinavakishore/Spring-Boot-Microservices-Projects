@@ -1,0 +1,5 @@
+package com.example.microservices.VaccinationCenter.Services;
+
+public class VaccinationCenterService {
+
+}

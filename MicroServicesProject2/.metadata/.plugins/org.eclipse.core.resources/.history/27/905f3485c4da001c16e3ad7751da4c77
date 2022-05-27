@@ -1,0 +1,18 @@
+package com.example.microservices.CitizenService.Services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.microservices.CitizenService.Entity.Citizen;
+import com.example.microservices.CitizenService.Repositories.CitizenRepository;
+
+@Service
+public class CitizenService {
+	@Autowired
+	private CitizenRepository citizenRepository;
+
+	public Citizen saveCitizen(Citizen newCitizen) {
+		 return citizenRepository.saveCitizen(newCitizen);
+	}
+
+}

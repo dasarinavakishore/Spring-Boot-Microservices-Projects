@@ -1,0 +1,17 @@
+package com.example.microservices.CitizenService;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+//@EnableEurekaClient //no need to enable @EnableEurekaClient here because it is deprecated..so no need to do explicitly
+@EnableJpaRepositories
+public class CitizenServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CitizenServiceApplication.class, args);
+	}
+
+}

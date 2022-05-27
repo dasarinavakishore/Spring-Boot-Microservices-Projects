@@ -1,0 +1,9 @@
+package com.example.microservices.CitizenService.Repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.microservices.CitizenService.Entity.Citizen;
+
+public interface CitizenRepository extends JpaRepository<Citizen, Integer> {
+
+}

@@ -1,0 +1,21 @@
+package com.example.microservices.CitizenService.Repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.example.microservices.CitizenService.Entity.Citizen;
+@Repository
+public interface CitizenRepository extends JpaRepository<Citizen, Integer> {
+	
+//	@Query
+	public List<Citizen> findbyVaccinationCenterId(Integer id);
+
+//	@Modifying
+//	@Query(value = "insert into fruits_table (name, vaccinationCenterId) VALUES (?1, ?2)", nativeQuery = true)
+//	void addCitizenUsingQuery(String name, Integer vaccinationCenterId);
+
+}

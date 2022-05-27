@@ -1,0 +1,15 @@
+package com.example.microservices.CitizenService;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+//@EnableEurekaClient //no need to enable @EnableEurekaClient here because it is deprecated..
+public class CitizenServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CitizenServiceApplication.class, args);
+	}
+
+}

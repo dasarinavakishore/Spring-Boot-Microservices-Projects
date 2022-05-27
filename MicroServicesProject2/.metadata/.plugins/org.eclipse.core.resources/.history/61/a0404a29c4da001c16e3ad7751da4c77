@@ -1,0 +1,24 @@
+package com.example.microservices.CitizenService.Repositories;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.microservices.CitizenService.Entity.Citizen;
+
+@Repository
+public class CitizenRepositoryDao implements CitizenRepository {
+
+	@Override
+	public List<Citizen> findbyVaccinationCenterId(Integer vaccinationCenterId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Citizen saveCitizen(Citizen newCitizen) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

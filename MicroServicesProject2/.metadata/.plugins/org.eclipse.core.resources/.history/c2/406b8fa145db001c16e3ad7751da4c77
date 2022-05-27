@@ -1,0 +1,56 @@
+package com.example.microservices.VaccinationCenter.Controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+import com.example.microservices.VaccinationCenter.Entity.VaccinationCenter;
+import com.example.microservices.VaccinationCenter.Model.Citizen;
+import com.example.microservices.VaccinationCenter.Model.RequiredResponse;
+import com.example.microservices.VaccinationCenter.Services.VaccinationCenterService;
+
+@RestController
+@RequestMapping("/vaccinationcenter")
+public class VaccinationCenterController {
+
+	@Autowired
+	private VaccinationCenterService vaccinationCenterService;
+
+	@Autowired
+	private RestTemplate restTemplate;
+
+	@PostMapping(path = "/addcenter")
+	public ResponseEntity<VaccinationCenter> addCenter(@RequestBody VaccinationCenter center) {
+
+		VaccinationCenter centerAdded = vaccinationCenterService.saveCenter(center);
+		return new ResponseEntity<VaccinationCenter>(centerAdded, HttpStatus.OK);
+	}
+
+	@GetMapping(path = "/id/{id}")
+	public ResponseEntity<RequiredResponse> getAllDatabasedOnCenterId(@PathVariable Integer id) {
+		RequiredResponse response = new RequiredResponse();
+		// Here we need to do two things
+		// 1st get vaccination center details
+		// 2nd get all citizens registered in that vaccinationCenter
+
+		VaccinationCenter center = vaccinationCenterService.getCenterDetails(id);
+
+		List<Citizen> citizens = restTemplate.getForObject("http://localhost:8081/citizen/id/" + id, List.class);
+
+		response.setCenter(center);
+		response.setCitizens(citizens);
+
+		System.out.println(response.toString());
+
+		return new ResponseEntity<RequiredResponse>(response, HttpStatus.OK);
+	}
+}

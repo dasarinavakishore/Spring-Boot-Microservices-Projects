@@ -1,0 +1,35 @@
+package com.example.microservices.CitizenService.Services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Service;
+
+import com.example.microservices.CitizenService.Entity.Citizen;
+import com.example.microservices.CitizenService.Repositories.CitizenRepository;
+
+@Service
+public class CitizenService {
+	@Autowired
+	private CitizenRepository citizenRepo;
+
+	public Citizen saveCitizen(Citizen newCitizen) {
+		return citizenRepo.save(newCitizen);
+	}
+	
+	public List<Citizen> findByVaccinationCenterId(Integer id) {
+		return citizenRepo.findByVaccinationCenterId(id);
+	}
+	
+	@Modifying
+	@Query(value = "insert into citizen(name, vaccinationCenterId) VALUES (?1, ?2)", nativeQuery = true)
+	public void addCitizenUsingQuery(Citizen newCitizen) {
+		System.out.println(newCitizen.getName() + " " + newCitizen.getVaccinationCenterId());
+		citizenRepo.save(newCitizen);
+	}
+
+	
+
+}
