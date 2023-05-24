@@ -1,5 +1,0 @@
-package com.example.microservices.VaccinationCenter.Model;
-
-public class RequiredResponse {
-
-}
