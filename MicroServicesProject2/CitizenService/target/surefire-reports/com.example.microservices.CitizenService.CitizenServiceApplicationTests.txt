@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.example.microservices.CitizenService.CitizenServiceApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 7.457 s <<< FAILURE! - in com.example.microservices.CitizenService.CitizenServiceApplicationTests
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'citizenController': Unsatisfied dependency expressed through field 'citizenRepository'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'citizenRepository' defined in com.example.microservices.CitizenService.Repositories.CitizenRepository defined in @EnableJpaRepositories declared on CitizenServiceApplication: Could not resolve matching constructor (hint: specify index/type/name arguments for simple parameters to avoid type ambiguities)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'citizenRepository' defined in com.example.microservices.CitizenService.Repositories.CitizenRepository defined in @EnableJpaRepositories declared on CitizenServiceApplication: Could not resolve matching constructor (hint: specify index/type/name arguments for simple parameters to avoid type ambiguities)
+

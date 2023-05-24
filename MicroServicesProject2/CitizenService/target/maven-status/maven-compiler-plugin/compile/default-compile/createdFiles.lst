@@ -1,0 +1,4 @@
+com\example\microservices\CitizenService\Controller\CitizenController.class
+com\example\microservices\CitizenService\Entity\Citizen.class
+com\example\microservices\CitizenService\Repositories\CitizenRepository.class
+com\example\microservices\CitizenService\CitizenServiceApplication.class
