@@ -1,5 +1,0 @@
-package com.example.microservices.CitizenService.Services;
-
-public class CitizenService {
-
-}
